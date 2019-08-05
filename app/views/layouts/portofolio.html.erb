@@ -7,14 +7,14 @@
 
     <meta name="keywords" content="<%= @seo_keywords %>" />
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'portofolios', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    
+
     <div>
       <div><%= link_to "Home", root_path %></div>
       <div><%= link_to "About", about_me_path %></div>
@@ -35,5 +35,6 @@
     <% end %>
 
     <%= yield %>
+
   </body>
 </html>
