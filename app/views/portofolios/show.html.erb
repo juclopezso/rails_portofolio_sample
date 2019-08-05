@@ -1,0 +1,15 @@
+<%= image_tag @portofolio_item.main_image if !@portofolio_item.main_image.nil? %>
+<h1><%= @portofolio_item.title %></h1>
+<p><%= @portofolio_item.body %></p>
+<%= link_to "Edit", edit_portofolio_path(@portofolio_item.id) %>
+
+<h2>Technologies</h2>
+<% @portofolio_item.technologies.each do |t| %>
+    <p><%= t.name %><p>
+<% end %>
+
+<hr>
+<%= params.inspect %>
+<hr>
+<%= session.inspect %>
+<hr>
