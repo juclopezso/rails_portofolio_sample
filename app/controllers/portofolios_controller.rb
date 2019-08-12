@@ -30,6 +30,7 @@ class PortofoliosController < ApplicationController
 
     def edit
         @portofolio_item = Portofolio.find(params[:id])
+        3.times { @portofolio_item.technologies.build }
     end
 
     def destroy
