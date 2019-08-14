@@ -5,7 +5,15 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    # byebug
+    # binding.pry
+    @blogs = Blog.feature_blogs
+    # binding.pry
+    @page_title = "Blogs page"
+    # puts "*"*100
+    # puts @blogs.inspect
+    # puts "*"*100
+
   end
 
   # GET /blogs/1
@@ -28,7 +36,7 @@ class BlogsController < ApplicationController
   # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
-
+    @blog.topic = Topic.last
     respond_to do |format|
       if @blog.save
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }

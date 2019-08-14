@@ -1,4 +1,5 @@
 class PortofoliosController < ApplicationController
+    before_action :set_portofolio_item, only: [:edit, :update, :show, :destroy]
    layout "portofolio"
    
     #/portotofolios - list of all portofolios
@@ -18,7 +19,7 @@ class PortofoliosController < ApplicationController
     end
 
     def show
-        @portofolio_item = Portofolio.find(params[:id])
+        # binding.pry
     end
 
     def new
@@ -29,12 +30,10 @@ class PortofoliosController < ApplicationController
     end
 
     def edit
-        @portofolio_item = Portofolio.find(params[:id])
         3.times { @portofolio_item.technologies.build }
     end
 
     def destroy
-        @portofolio_item = Portofolio.find(params[:id])
         @portofolio_item.destroy
         
         respond_to do |format|
@@ -56,7 +55,6 @@ class PortofoliosController < ApplicationController
 
     # PATCH/PUT /blogs/1.json
     def update
-        @portofolio_item = Portofolio.find(params[:id])
         # portofolios_path : path to portofolios 
         # portofolios_url  : real path in the system 
         respond_to do |format|
@@ -76,6 +74,10 @@ class PortofoliosController < ApplicationController
             :subtitle, 
             :body,
             technologies_attributes: [:name])
+    end
+
+    def set_portofolio_item
+        @portofolio_item = Portofolio.find(params[:id])
     end
 
 end

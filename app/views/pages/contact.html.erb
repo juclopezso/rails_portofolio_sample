@@ -1,2 +1,11 @@
 <h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+<%
+=begin%>
+ <td>Published <%= distance_of_time_in_words(blog.created_at, Time.now) %></td> 
+<%
+=end%>
+<p><%= number_to_phone("5555333344") %></p>
+<p><%= number_to_currency("5555333344") %></p>
+<p><%= number_to_percentage("12.4") %></p>
+<p><%= number_with_delimiter("1223892832") %></p>
+

@@ -2,12 +2,4 @@
 
 <%= link_to "Create new item", new_portofolio_path %>
 
-<% @portofolio_items.each do |item| %>
-    
-    <h2><%= link_to item.title, portofolio_show_path(item.id) %></h2>
-    <h4><%= item.subtitle %></h4>
-    <p><%= item.body %></p>
-    <%= image_tag item.thumb_image if !item.thumb_image.nil? %>
-    <%= link_to "Edit", edit_portofolio_path(item) %>
-    <%= link_to "Delete", portofolio_show_path(item), method: :delete %>
-<% end %>
+<%= render partial: 'portofolio_item', collection: @portofolio_items %>
